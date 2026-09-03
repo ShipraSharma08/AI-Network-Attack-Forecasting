@@ -1,0 +1,4 @@
+*.pcap filter=lfs diff=lfs merge=lfs -text
+*.h5 filter=lfs diff=lfs merge=lfs -text
+*.pt filter=lfs diff=lfs merge=lfs -text
+data/raw/Thursday-01-03-2018_TrafficForML_CICFlowMeter.csv filter=lfs diff=lfs merge=lfs -text
