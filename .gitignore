@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Raw datasets
+data/raw/*.csv
+data/raw/*.pcap
+data/raw/*.pcapng
+data/raw/*.zip
+
+# Temporary/intermediate files
+data/processed/*_before_label_fix.csv
+
+# OS/editor
+.DS_Store
+.vscode/
