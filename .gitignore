@@ -15,3 +15,4 @@ data/processed/*_before_label_fix.csv
 # OS/editor
 .DS_Store
 .vscode/
+data/processed/infiltration_packet_features.csv
