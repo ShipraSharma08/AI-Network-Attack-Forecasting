@@ -1,0 +1,2493 @@
+{
+  "model_version": "lstm_flow_only_v1",
+  "block_count": 76,
+  "chain": [
+    {
+      "index": 0,
+      "timestamp": "2026-09-16T12:50:40.916220+00:00",
+      "window_id": -1,
+      "attack_probability": 0.0,
+      "mitre_stage": "GENESIS",
+      "mitre_tactic_id": null,
+      "top_shap_features": [],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "794dbe5432c73f92de4932497d716824b7b3f13bd8adc24122f47ea6899e2cc0"
+    },
+    {
+      "index": 1,
+      "timestamp": "2026-09-16T12:50:45.150496+00:00",
+      "window_id": 590,
+      "attack_probability": 0.91,
+      "mitre_stage": "Reconnaissance",
+      "mitre_tactic_id": "TA0043",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "794dbe5432c73f92de4932497d716824b7b3f13bd8adc24122f47ea6899e2cc0",
+      "hash": "0a594d690f1a9942d94837a1e06cfa892950d25bcc96cfd09fdce1987e1f7a80"
+    },
+    {
+      "index": 2,
+      "timestamp": "2026-09-16T12:50:45.150689+00:00",
+      "window_id": 591,
+      "attack_probability": 0.92,
+      "mitre_stage": "Initial Access",
+      "mitre_tactic_id": "TA0001",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "0a594d690f1a9942d94837a1e06cfa892950d25bcc96cfd09fdce1987e1f7a80",
+      "hash": "41401540205c50a205fd275d6eb5d1e82ad82342c90a3cd242afd21e92d5e00a"
+    },
+    {
+      "index": 3,
+      "timestamp": "2026-09-16T12:50:45.150786+00:00",
+      "window_id": 592,
+      "attack_probability": 0.93,
+      "mitre_stage": "Initial Access",
+      "mitre_tactic_id": "TA0001",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "41401540205c50a205fd275d6eb5d1e82ad82342c90a3cd242afd21e92d5e00a",
+      "hash": "56b16c73f62d8328254b20b67e3ca9278c205177d5c227fe824f9ac2a54b3581"
+    },
+    {
+      "index": 4,
+      "timestamp": "2026-09-16T12:50:45.150854+00:00",
+      "window_id": 593,
+      "attack_probability": 0.94,
+      "mitre_stage": "Initial Access",
+      "mitre_tactic_id": "TA0001",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "56b16c73f62d8328254b20b67e3ca9278c205177d5c227fe824f9ac2a54b3581",
+      "hash": "a71cd1a5ab415af3b6d7dc00cb2e2f76546e4b53ad5c6206a373b111ceb10963"
+    },
+    {
+      "index": 5,
+      "timestamp": "2026-09-16T12:50:45.150922+00:00",
+      "window_id": 594,
+      "attack_probability": 0.95,
+      "mitre_stage": "Initial Access",
+      "mitre_tactic_id": "TA0001",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "a71cd1a5ab415af3b6d7dc00cb2e2f76546e4b53ad5c6206a373b111ceb10963",
+      "hash": "9f187e1659e3b470046b98fc7332147551af1614aa26ca1f3960c00317a3faf6"
+    },
+    {
+      "index": 6,
+      "timestamp": "2026-09-16T12:50:45.150983+00:00",
+      "window_id": 595,
+      "attack_probability": 0.89,
+      "mitre_stage": "Initial Access",
+      "mitre_tactic_id": "TA0001",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "9f187e1659e3b470046b98fc7332147551af1614aa26ca1f3960c00317a3faf6",
+      "hash": "d481de3aff3cc234e963ff26057e12f46458e16534a7900367c491894bdfa342"
+    },
+    {
+      "index": 7,
+      "timestamp": "2026-09-16T12:50:45.151039+00:00",
+      "window_id": 596,
+      "attack_probability": 0.9,
+      "mitre_stage": "Initial Access",
+      "mitre_tactic_id": "TA0001",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "d481de3aff3cc234e963ff26057e12f46458e16534a7900367c491894bdfa342",
+      "hash": "349a830f6901f21e7c47c8d17795240f9178873c55d9710d8e5ddc57e63ad5f1"
+    },
+    {
+      "index": 8,
+      "timestamp": "2026-09-16T12:50:45.151091+00:00",
+      "window_id": 597,
+      "attack_probability": 0.91,
+      "mitre_stage": "Initial Access",
+      "mitre_tactic_id": "TA0001",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "349a830f6901f21e7c47c8d17795240f9178873c55d9710d8e5ddc57e63ad5f1",
+      "hash": "ff56dd0bf914bfae9cf04e1a53fe50f71e342f17e521b5b4e3e96ad5b9889d49"
+    },
+    {
+      "index": 9,
+      "timestamp": "2026-09-16T12:50:45.151156+00:00",
+      "window_id": 598,
+      "attack_probability": 0.92,
+      "mitre_stage": "Initial Access",
+      "mitre_tactic_id": "TA0001",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "ff56dd0bf914bfae9cf04e1a53fe50f71e342f17e521b5b4e3e96ad5b9889d49",
+      "hash": "056cea449759f210e703a8184723037dd7bab7cbd3d7a4b45c5040733d418051"
+    },
+    {
+      "index": 10,
+      "timestamp": "2026-09-16T12:50:45.151211+00:00",
+      "window_id": 599,
+      "attack_probability": 0.93,
+      "mitre_stage": "Initial Access",
+      "mitre_tactic_id": "TA0001",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "056cea449759f210e703a8184723037dd7bab7cbd3d7a4b45c5040733d418051",
+      "hash": "fbce1bba7c4ef9c18f3b444826756d3c4e273f8a8e2be85a2dd29e18db5dc6fe"
+    },
+    {
+      "index": 11,
+      "timestamp": "2026-09-16T12:50:45.151370+00:00",
+      "window_id": 600,
+      "attack_probability": 0.94,
+      "mitre_stage": "Initial Access",
+      "mitre_tactic_id": "TA0001",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "fbce1bba7c4ef9c18f3b444826756d3c4e273f8a8e2be85a2dd29e18db5dc6fe",
+      "hash": "621b836f6e61d23fcbed0cedc02af532544076bd5a628292ec51cff478c17282"
+    },
+    {
+      "index": 12,
+      "timestamp": "2026-09-16T12:50:45.151434+00:00",
+      "window_id": 601,
+      "attack_probability": 0.95,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "621b836f6e61d23fcbed0cedc02af532544076bd5a628292ec51cff478c17282",
+      "hash": "d999c5680f87801b386d2a092b9776e64599e5445848ea809cb96dffd0862b65"
+    },
+    {
+      "index": 13,
+      "timestamp": "2026-09-16T12:50:45.151488+00:00",
+      "window_id": 602,
+      "attack_probability": 0.89,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "d999c5680f87801b386d2a092b9776e64599e5445848ea809cb96dffd0862b65",
+      "hash": "d8258a108193c91bcbc8abf7e488cd879fb34c7c00455d9925ed6afd6a0c017b"
+    },
+    {
+      "index": 14,
+      "timestamp": "2026-09-16T12:50:45.151540+00:00",
+      "window_id": 603,
+      "attack_probability": 0.9,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "d8258a108193c91bcbc8abf7e488cd879fb34c7c00455d9925ed6afd6a0c017b",
+      "hash": "73f6bc0ed6d8634a4e064c7d2646cd485aff2055c8ddde0924eac19b156da92b"
+    },
+    {
+      "index": 15,
+      "timestamp": "2026-09-16T12:50:45.151593+00:00",
+      "window_id": 604,
+      "attack_probability": 0.91,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "73f6bc0ed6d8634a4e064c7d2646cd485aff2055c8ddde0924eac19b156da92b",
+      "hash": "2b3d604ec2c90279aa5126dd746b04ef40c90d3171697d101893c8734c0259a8"
+    },
+    {
+      "index": 16,
+      "timestamp": "2026-09-16T12:50:45.151644+00:00",
+      "window_id": 605,
+      "attack_probability": 0.92,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "2b3d604ec2c90279aa5126dd746b04ef40c90d3171697d101893c8734c0259a8",
+      "hash": "310879b1e6f9cc97dae3823a8f80dda6ae6a330d806d384c75a7be25df809273"
+    },
+    {
+      "index": 17,
+      "timestamp": "2026-09-16T12:50:45.151695+00:00",
+      "window_id": 606,
+      "attack_probability": 0.93,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "310879b1e6f9cc97dae3823a8f80dda6ae6a330d806d384c75a7be25df809273",
+      "hash": "7322f784546999adb01aa8c35f433bf52571c21bdccb5cb167e360916b2472d1"
+    },
+    {
+      "index": 18,
+      "timestamp": "2026-09-16T12:50:45.151744+00:00",
+      "window_id": 607,
+      "attack_probability": 0.94,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "7322f784546999adb01aa8c35f433bf52571c21bdccb5cb167e360916b2472d1",
+      "hash": "eaa509a71b7e08b209684b91e4a4d01c7e4a7e59345c4d606d4ceb6423c9fc38"
+    },
+    {
+      "index": 19,
+      "timestamp": "2026-09-16T12:50:45.151793+00:00",
+      "window_id": 608,
+      "attack_probability": 0.95,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "eaa509a71b7e08b209684b91e4a4d01c7e4a7e59345c4d606d4ceb6423c9fc38",
+      "hash": "76209e7545436972d482d87f8343babf767d282f4ac8f82d0ccfa147fb402858"
+    },
+    {
+      "index": 20,
+      "timestamp": "2026-09-16T12:50:45.151840+00:00",
+      "window_id": 609,
+      "attack_probability": 0.89,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "76209e7545436972d482d87f8343babf767d282f4ac8f82d0ccfa147fb402858",
+      "hash": "74c9997206c2a1b2568a983280dc4b6c66d607c3e36ecc6ff4f3ac2ee0fba5d4"
+    },
+    {
+      "index": 21,
+      "timestamp": "2026-09-16T12:50:45.151886+00:00",
+      "window_id": 610,
+      "attack_probability": 0.9,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "74c9997206c2a1b2568a983280dc4b6c66d607c3e36ecc6ff4f3ac2ee0fba5d4",
+      "hash": "e875f4895c247c5689aee7fb1df15f165fe74e4a8f808c909b9e0cbb823bc8c0"
+    },
+    {
+      "index": 22,
+      "timestamp": "2026-09-16T12:50:45.151933+00:00",
+      "window_id": 611,
+      "attack_probability": 0.91,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "e875f4895c247c5689aee7fb1df15f165fe74e4a8f808c909b9e0cbb823bc8c0",
+      "hash": "51a8c42eee5166beab705825b546473d3b30fbb5049023a11a8e95f61022402b"
+    },
+    {
+      "index": 23,
+      "timestamp": "2026-09-16T12:50:45.152017+00:00",
+      "window_id": 612,
+      "attack_probability": 0.92,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "51a8c42eee5166beab705825b546473d3b30fbb5049023a11a8e95f61022402b",
+      "hash": "40731c1759ed633b40ad25615f0c07ec83988a765b2319629568395920e5a41b"
+    },
+    {
+      "index": 24,
+      "timestamp": "2026-09-16T12:50:45.152072+00:00",
+      "window_id": 613,
+      "attack_probability": 0.93,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "40731c1759ed633b40ad25615f0c07ec83988a765b2319629568395920e5a41b",
+      "hash": "fb470c4a931917a9b9c0ca96ddaad98ab9b837382f022f789aa9711d25298ed1"
+    },
+    {
+      "index": 25,
+      "timestamp": "2026-09-16T12:50:45.152123+00:00",
+      "window_id": 614,
+      "attack_probability": 0.94,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "fb470c4a931917a9b9c0ca96ddaad98ab9b837382f022f789aa9711d25298ed1",
+      "hash": "6593bb8138c20ac037b0f1393413c59b055e0ba9148e68137fcde57cd701869a"
+    },
+    {
+      "index": 26,
+      "timestamp": "2026-09-16T12:50:45.152173+00:00",
+      "window_id": 615,
+      "attack_probability": 0.95,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "6593bb8138c20ac037b0f1393413c59b055e0ba9148e68137fcde57cd701869a",
+      "hash": "13bbe82c952146117582b594e81ab6e93e5a126a9346d27b54dd43b46ecda7be"
+    },
+    {
+      "index": 27,
+      "timestamp": "2026-09-16T12:50:45.152223+00:00",
+      "window_id": 616,
+      "attack_probability": 0.89,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "13bbe82c952146117582b594e81ab6e93e5a126a9346d27b54dd43b46ecda7be",
+      "hash": "2acb1aeb0b4f20e8f5554e755e8a67399fa1c5e2a912c9f04599d414c1654ad2"
+    },
+    {
+      "index": 28,
+      "timestamp": "2026-09-16T12:50:45.152271+00:00",
+      "window_id": 617,
+      "attack_probability": 0.9,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "2acb1aeb0b4f20e8f5554e755e8a67399fa1c5e2a912c9f04599d414c1654ad2",
+      "hash": "5d337b0a1ee8eabcd6b3ac8d9f1b2972fedc0cea1389d3c7366dc2c792c0ce67"
+    },
+    {
+      "index": 29,
+      "timestamp": "2026-09-16T12:50:45.152319+00:00",
+      "window_id": 618,
+      "attack_probability": 0.91,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "5d337b0a1ee8eabcd6b3ac8d9f1b2972fedc0cea1389d3c7366dc2c792c0ce67",
+      "hash": "ca2622f57b3f9829939bc47ec5f732cc856fb9a5f24c7821a220eebe66aa4c8b"
+    },
+    {
+      "index": 30,
+      "timestamp": "2026-09-16T12:50:45.152367+00:00",
+      "window_id": 619,
+      "attack_probability": 0.92,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "ca2622f57b3f9829939bc47ec5f732cc856fb9a5f24c7821a220eebe66aa4c8b",
+      "hash": "7b33212d134cd1c5ade451e8fe0a7151d43719ffd93ff55fa22768d17c17d3eb"
+    },
+    {
+      "index": 31,
+      "timestamp": "2026-09-16T12:50:45.152413+00:00",
+      "window_id": 620,
+      "attack_probability": 0.93,
+      "mitre_stage": "Lateral Movement",
+      "mitre_tactic_id": "TA0008",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "7b33212d134cd1c5ade451e8fe0a7151d43719ffd93ff55fa22768d17c17d3eb",
+      "hash": "9888ee5d938f0e7ddb6b845a976cf55613dde836c847b118132c3614a6a4b55d"
+    },
+    {
+      "index": 32,
+      "timestamp": "2026-09-16T12:50:45.152462+00:00",
+      "window_id": 621,
+      "attack_probability": 0.94,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "9888ee5d938f0e7ddb6b845a976cf55613dde836c847b118132c3614a6a4b55d",
+      "hash": "3c85ed5413bc2e51693dd198bbb36ae58897ee944ac63a69a3ee21b1e91c803b"
+    },
+    {
+      "index": 33,
+      "timestamp": "2026-09-16T12:50:45.152510+00:00",
+      "window_id": 622,
+      "attack_probability": 0.95,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "3c85ed5413bc2e51693dd198bbb36ae58897ee944ac63a69a3ee21b1e91c803b",
+      "hash": "2a5521e9a14edd67401b88fec9823a9b816f7149394cfb9961233318c54e2ade"
+    },
+    {
+      "index": 34,
+      "timestamp": "2026-09-16T12:50:45.152558+00:00",
+      "window_id": 623,
+      "attack_probability": 0.89,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "2a5521e9a14edd67401b88fec9823a9b816f7149394cfb9961233318c54e2ade",
+      "hash": "939ff0d5a5a4899b76dfad5411592b6c948eab24f1246a4dd781b3f9d7e1271f"
+    },
+    {
+      "index": 35,
+      "timestamp": "2026-09-16T12:50:45.152605+00:00",
+      "window_id": 624,
+      "attack_probability": 0.9,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "939ff0d5a5a4899b76dfad5411592b6c948eab24f1246a4dd781b3f9d7e1271f",
+      "hash": "81ce689926f4f1fc512e59fe3c9fddb4bbe4f73873b50c1fa61581d2b73846a0"
+    },
+    {
+      "index": 36,
+      "timestamp": "2026-09-16T12:50:45.152653+00:00",
+      "window_id": 625,
+      "attack_probability": 0.91,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "81ce689926f4f1fc512e59fe3c9fddb4bbe4f73873b50c1fa61581d2b73846a0",
+      "hash": "b4540289c2b2f7a5c5239d2dbcac7454b6b15abd92c0344af59e553eb0b6f116"
+    },
+    {
+      "index": 37,
+      "timestamp": "2026-09-16T12:50:45.152700+00:00",
+      "window_id": 626,
+      "attack_probability": 0.92,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "b4540289c2b2f7a5c5239d2dbcac7454b6b15abd92c0344af59e553eb0b6f116",
+      "hash": "ce683812880bbabd6f47979a4b2572f3c253395af23d1bf16bff88aec8743aa5"
+    },
+    {
+      "index": 38,
+      "timestamp": "2026-09-16T12:50:45.152747+00:00",
+      "window_id": 627,
+      "attack_probability": 0.93,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "ce683812880bbabd6f47979a4b2572f3c253395af23d1bf16bff88aec8743aa5",
+      "hash": "0dd6900b5045d12291aee381e590d773f7ef3ca5885adaa0090729410988fc49"
+    },
+    {
+      "index": 39,
+      "timestamp": "2026-09-16T12:50:45.152800+00:00",
+      "window_id": 628,
+      "attack_probability": 0.94,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "0dd6900b5045d12291aee381e590d773f7ef3ca5885adaa0090729410988fc49",
+      "hash": "29769351b88f41a8597644c15a44861464ec101df642951e62a42bf593ffd9da"
+    },
+    {
+      "index": 40,
+      "timestamp": "2026-09-16T12:50:45.152850+00:00",
+      "window_id": 629,
+      "attack_probability": 0.95,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "29769351b88f41a8597644c15a44861464ec101df642951e62a42bf593ffd9da",
+      "hash": "0d7481d1374036ce9a3da6b570799d18963244a7951bce7b2d254a257800fc14"
+    },
+    {
+      "index": 41,
+      "timestamp": "2026-09-16T12:50:45.152899+00:00",
+      "window_id": 630,
+      "attack_probability": 0.89,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "0d7481d1374036ce9a3da6b570799d18963244a7951bce7b2d254a257800fc14",
+      "hash": "decb25a897a448398de80b9dcc42a48ebd717fdb1bee5beae3adcff88a77248d"
+    },
+    {
+      "index": 42,
+      "timestamp": "2026-09-16T12:50:45.152945+00:00",
+      "window_id": 631,
+      "attack_probability": 0.9,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "decb25a897a448398de80b9dcc42a48ebd717fdb1bee5beae3adcff88a77248d",
+      "hash": "db8274db269d823ce895097d0dcd8c19ab55af80f6cc711c7886bdb1e65f19f5"
+    },
+    {
+      "index": 43,
+      "timestamp": "2026-09-16T12:50:45.152991+00:00",
+      "window_id": 632,
+      "attack_probability": 0.91,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "db8274db269d823ce895097d0dcd8c19ab55af80f6cc711c7886bdb1e65f19f5",
+      "hash": "6abf2ee3ac1e0369a9f0cc18185f3e7dc0c2bba78357f311f09211a7bc67c5d1"
+    },
+    {
+      "index": 44,
+      "timestamp": "2026-09-16T12:50:45.153038+00:00",
+      "window_id": 633,
+      "attack_probability": 0.92,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "6abf2ee3ac1e0369a9f0cc18185f3e7dc0c2bba78357f311f09211a7bc67c5d1",
+      "hash": "653dc2e54107c3248d741f05660aa92ed415c9995193b5cf6b8af533a81bcfe3"
+    },
+    {
+      "index": 45,
+      "timestamp": "2026-09-16T12:50:45.153085+00:00",
+      "window_id": 634,
+      "attack_probability": 0.93,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "653dc2e54107c3248d741f05660aa92ed415c9995193b5cf6b8af533a81bcfe3",
+      "hash": "a466cea263d3b68f1eec15b718f9cb57e3e445d7659787848dc39cad51838ed7"
+    },
+    {
+      "index": 46,
+      "timestamp": "2026-09-16T12:50:45.153131+00:00",
+      "window_id": 635,
+      "attack_probability": 0.94,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "a466cea263d3b68f1eec15b718f9cb57e3e445d7659787848dc39cad51838ed7",
+      "hash": "36a68c2c6ae914f0c320cbdac00e0d892a7de069fcf1d2d1444794cf749c83b0"
+    },
+    {
+      "index": 47,
+      "timestamp": "2026-09-16T12:50:45.153177+00:00",
+      "window_id": 636,
+      "attack_probability": 0.95,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "36a68c2c6ae914f0c320cbdac00e0d892a7de069fcf1d2d1444794cf749c83b0",
+      "hash": "68fadf6a749f59351483cef23308833073eb864ae5f3456813a9494a647026c1"
+    },
+    {
+      "index": 48,
+      "timestamp": "2026-09-16T12:50:45.153224+00:00",
+      "window_id": 637,
+      "attack_probability": 0.89,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "68fadf6a749f59351483cef23308833073eb864ae5f3456813a9494a647026c1",
+      "hash": "31b1f12141abe9d18f737b82f51fc952677df5e9ffdca014d4776b2edf5ba0c3"
+    },
+    {
+      "index": 49,
+      "timestamp": "2026-09-16T12:50:45.153269+00:00",
+      "window_id": 638,
+      "attack_probability": 0.9,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "31b1f12141abe9d18f737b82f51fc952677df5e9ffdca014d4776b2edf5ba0c3",
+      "hash": "60480e8fb7ae3999e604e640078b6621e5c10d2c1743cfaee8592946df48a79e"
+    },
+    {
+      "index": 50,
+      "timestamp": "2026-09-16T12:50:45.153316+00:00",
+      "window_id": 639,
+      "attack_probability": 0.91,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "60480e8fb7ae3999e604e640078b6621e5c10d2c1743cfaee8592946df48a79e",
+      "hash": "9a77897b12d16e6834f3223ca848f59475605e497344a8035dd1787bd97cef29"
+    },
+    {
+      "index": 51,
+      "timestamp": "2026-09-16T12:50:45.153365+00:00",
+      "window_id": 640,
+      "attack_probability": 0.92,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "9a77897b12d16e6834f3223ca848f59475605e497344a8035dd1787bd97cef29",
+      "hash": "022f335723ca3ac04e9105206bccfd9c820d2d6457f668a2ca912bb137f06421"
+    },
+    {
+      "index": 52,
+      "timestamp": "2026-09-16T12:50:45.153412+00:00",
+      "window_id": 641,
+      "attack_probability": 0.93,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "022f335723ca3ac04e9105206bccfd9c820d2d6457f668a2ca912bb137f06421",
+      "hash": "9a7ec13648fb40f3cc3f7a8da963baada21b0f7f7506add9c400d7b0c8efb45d"
+    },
+    {
+      "index": 53,
+      "timestamp": "2026-09-16T12:50:45.153458+00:00",
+      "window_id": 642,
+      "attack_probability": 0.94,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "9a7ec13648fb40f3cc3f7a8da963baada21b0f7f7506add9c400d7b0c8efb45d",
+      "hash": "935dae20affe45a059aa07c15bd4d9d1d67ab833e02dd9d552f3c8d24bc92cf2"
+    },
+    {
+      "index": 54,
+      "timestamp": "2026-09-16T12:50:45.153504+00:00",
+      "window_id": 643,
+      "attack_probability": 0.95,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "935dae20affe45a059aa07c15bd4d9d1d67ab833e02dd9d552f3c8d24bc92cf2",
+      "hash": "c747f4830a5c45639636ba28e34625561c003a5b0d30117acb03b2b831b1d55c"
+    },
+    {
+      "index": 55,
+      "timestamp": "2026-09-16T12:50:45.153551+00:00",
+      "window_id": 644,
+      "attack_probability": 0.89,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "c747f4830a5c45639636ba28e34625561c003a5b0d30117acb03b2b831b1d55c",
+      "hash": "6feadfbdc262f80871aa0ff279b339e0a43d2640c6850585298311fe8590fba1"
+    },
+    {
+      "index": 56,
+      "timestamp": "2026-09-16T12:50:45.153600+00:00",
+      "window_id": 645,
+      "attack_probability": 0.9,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "6feadfbdc262f80871aa0ff279b339e0a43d2640c6850585298311fe8590fba1",
+      "hash": "c9071c26fc095b440f318ec406f61398e113da7f1b41fda7b61da8fe3bccd9f3"
+    },
+    {
+      "index": 57,
+      "timestamp": "2026-09-16T12:50:45.153645+00:00",
+      "window_id": 646,
+      "attack_probability": 0.91,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "c9071c26fc095b440f318ec406f61398e113da7f1b41fda7b61da8fe3bccd9f3",
+      "hash": "aeb768d610d08bccaa3b2518c73c2dfce863c6de6e822203db0bef3cc556c11c"
+    },
+    {
+      "index": 58,
+      "timestamp": "2026-09-16T12:50:45.153691+00:00",
+      "window_id": 647,
+      "attack_probability": 0.92,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "aeb768d610d08bccaa3b2518c73c2dfce863c6de6e822203db0bef3cc556c11c",
+      "hash": "b42f507f5423f60e144c7f3f69cf05fa78affed36a37156bb9a6716792cfb7a9"
+    },
+    {
+      "index": 59,
+      "timestamp": "2026-09-16T12:50:45.153736+00:00",
+      "window_id": 648,
+      "attack_probability": 0.93,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "b42f507f5423f60e144c7f3f69cf05fa78affed36a37156bb9a6716792cfb7a9",
+      "hash": "d020d225ae266960b76b34b6ef821924ddd2321cbce7335d8e2bdba2abd44a73"
+    },
+    {
+      "index": 60,
+      "timestamp": "2026-09-16T12:50:45.153780+00:00",
+      "window_id": 649,
+      "attack_probability": 0.94,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "d020d225ae266960b76b34b6ef821924ddd2321cbce7335d8e2bdba2abd44a73",
+      "hash": "ba0f6904eca51c79877f6b9920b93243b5fc3fa24459771007dc1196f9610f98"
+    },
+    {
+      "index": 61,
+      "timestamp": "2026-09-16T12:50:45.153826+00:00",
+      "window_id": 650,
+      "attack_probability": 0.95,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "ba0f6904eca51c79877f6b9920b93243b5fc3fa24459771007dc1196f9610f98",
+      "hash": "6e25b3a67700ffc432854864d5593e52e42c7d38e0af1488cac4e53cec90252b"
+    },
+    {
+      "index": 62,
+      "timestamp": "2026-09-16T12:50:45.153875+00:00",
+      "window_id": 651,
+      "attack_probability": 0.89,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "6e25b3a67700ffc432854864d5593e52e42c7d38e0af1488cac4e53cec90252b",
+      "hash": "cba9f73fb6deff813a543a5c2339e44af1a0cd9d5850d8b81784d830ced8cf00"
+    },
+    {
+      "index": 63,
+      "timestamp": "2026-09-16T12:50:45.153921+00:00",
+      "window_id": 652,
+      "attack_probability": 0.9,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "cba9f73fb6deff813a543a5c2339e44af1a0cd9d5850d8b81784d830ced8cf00",
+      "hash": "9f96266da1404504d7782028b77ea3726b5375ad8fa627002584030ed3064ab4"
+    },
+    {
+      "index": 64,
+      "timestamp": "2026-09-16T12:50:45.153999+00:00",
+      "window_id": 653,
+      "attack_probability": 0.91,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "9f96266da1404504d7782028b77ea3726b5375ad8fa627002584030ed3064ab4",
+      "hash": "512534c7a71086f22ae1e121902dce23ad7ceac11fc2f3e2c857dfde1afa65c1"
+    },
+    {
+      "index": 65,
+      "timestamp": "2026-09-16T12:50:45.154058+00:00",
+      "window_id": 654,
+      "attack_probability": 0.92,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "512534c7a71086f22ae1e121902dce23ad7ceac11fc2f3e2c857dfde1afa65c1",
+      "hash": "9c30a4eec8d65a83ee24ac2abb6ec01ec854330031931f2d36601eef61b9ffd8"
+    },
+    {
+      "index": 66,
+      "timestamp": "2026-09-16T12:50:45.154106+00:00",
+      "window_id": 655,
+      "attack_probability": 0.93,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "9c30a4eec8d65a83ee24ac2abb6ec01ec854330031931f2d36601eef61b9ffd8",
+      "hash": "920e819b014b2627b580320887dc5a65534760fa5d49e43b14e61392842bab88"
+    },
+    {
+      "index": 67,
+      "timestamp": "2026-09-16T12:50:45.154152+00:00",
+      "window_id": 656,
+      "attack_probability": 0.94,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "920e819b014b2627b580320887dc5a65534760fa5d49e43b14e61392842bab88",
+      "hash": "aed2de36110c66fe105eb5b874c286859bada04d2dc3ee65a6468ceddd81b493"
+    },
+    {
+      "index": 68,
+      "timestamp": "2026-09-16T12:50:45.154196+00:00",
+      "window_id": 657,
+      "attack_probability": 0.95,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "aed2de36110c66fe105eb5b874c286859bada04d2dc3ee65a6468ceddd81b493",
+      "hash": "a0fa98a41b226add92a3301c4bc0583602126f72df36ff6a83c4166e9b8684bc"
+    },
+    {
+      "index": 69,
+      "timestamp": "2026-09-16T12:50:45.154242+00:00",
+      "window_id": 658,
+      "attack_probability": 0.89,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "a0fa98a41b226add92a3301c4bc0583602126f72df36ff6a83c4166e9b8684bc",
+      "hash": "cb754a1625aa3e239a838f304fa38342adf33415dc4e9873a9449dc9e39861a9"
+    },
+    {
+      "index": 70,
+      "timestamp": "2026-09-16T12:50:45.154288+00:00",
+      "window_id": 659,
+      "attack_probability": 0.9,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "cb754a1625aa3e239a838f304fa38342adf33415dc4e9873a9449dc9e39861a9",
+      "hash": "b1ef94c1155bde76aec0cf71e00a11d2286394ff5dc309eb55c4096a86bbef5b"
+    },
+    {
+      "index": 71,
+      "timestamp": "2026-09-16T12:50:45.154332+00:00",
+      "window_id": 660,
+      "attack_probability": 0.91,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "b1ef94c1155bde76aec0cf71e00a11d2286394ff5dc309eb55c4096a86bbef5b",
+      "hash": "35c08a899047c475bf9a70b7dbb78d24c54dc0dedcdab9546f304f33242a883c"
+    },
+    {
+      "index": 72,
+      "timestamp": "2026-09-16T12:50:45.154378+00:00",
+      "window_id": 661,
+      "attack_probability": 0.92,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "35c08a899047c475bf9a70b7dbb78d24c54dc0dedcdab9546f304f33242a883c",
+      "hash": "052b5bda88d84268aae631bfa96187a8313394426740ac0c6c3106fc9950ea3e"
+    },
+    {
+      "index": 73,
+      "timestamp": "2026-09-16T12:50:45.154423+00:00",
+      "window_id": 662,
+      "attack_probability": 0.93,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "052b5bda88d84268aae631bfa96187a8313394426740ac0c6c3106fc9950ea3e",
+      "hash": "286b5fe603f851661b41cdb7db18a98d7c14d19ec9aa4d4149ba71c8aac637c6"
+    },
+    {
+      "index": 74,
+      "timestamp": "2026-09-16T12:50:45.154470+00:00",
+      "window_id": 663,
+      "attack_probability": 0.94,
+      "mitre_stage": "Command & Control",
+      "mitre_tactic_id": "TA0011",
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "286b5fe603f851661b41cdb7db18a98d7c14d19ec9aa4d4149ba71c8aac637c6",
+      "hash": "89bee6ee216fb15f39836367840c8c3e06981b6d70de1231c21346f2bee225d6"
+    },
+    {
+      "index": 75,
+      "timestamp": "2026-09-16T12:50:45.154521+00:00",
+      "window_id": 664,
+      "attack_probability": 0.34,
+      "mitre_stage": "Benign",
+      "mitre_tactic_id": null,
+      "top_shap_features": [
+        {
+          "feature": "syn_count",
+          "contribution": 0.0321
+        },
+        {
+          "feature": "packet_length_mean",
+          "contribution": 0.0195
+        },
+        {
+          "feature": "ack_count",
+          "contribution": 0.0183
+        },
+        {
+          "feature": "fwd_bytes_sum",
+          "contribution": 0.0144
+        },
+        {
+          "feature": "packets_per_second",
+          "contribution": 0.0098
+        }
+      ],
+      "model_version": "lstm_flow_only_v1",
+      "prev_hash": "89bee6ee216fb15f39836367840c8c3e06981b6d70de1231c21346f2bee225d6",
+      "hash": "765a1680fa4b6d1fdefbea7307472d76cf3a679a46b9c73724b95e280e474bdc"
+    }
+  ]
+}
