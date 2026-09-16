@@ -1,0 +1,4426 @@
+{
+  "meta": {
+    "run_timestamp": "2026-09-16T05:26:28.097968+00:00",
+    "model_file": "/home/vaibhav_09/projects/AI-Network-Attack-Forecasting/models/lstm_model.h5",
+    "scaler_source": "/home/vaibhav_09/projects/AI-Network-Attack-Forecasting/data/processed/state_transitions_clean.csv",
+    "scaler_train_window": "<= 609 (Wednesday train split, no retraining)",
+    "thursday_csv": "/home/vaibhav_09/projects/AI-Network-Attack-Forecasting/data/raw/Thursday-01-03-2018_TrafficForML_CICFlowMeter.csv",
+    "threshold": 0.5,
+    "seq_len": 10
+  },
+  "ground_truth_note": "Attack window mismatch: this file's traffic (01:00-12:59) does not overlap the documented Thursday infiltration window (14:00-15:37). This evaluation measures false-positive rate on unseen benign traffic only, not attack recall.",
+  "raw_label_findings": {
+    "infilteration_flow_count": 93063,
+    "infilteration_min_timestamp": "2018-03-01 02:00:00",
+    "infilteration_max_timestamp": "2018-03-01 10:54:59",
+    "documented_attack_start": "2018-03-01 14:00:00",
+    "documented_attack_end": "2018-03-01 15:37:00",
+    "verdict": "Raw Infilteration labels (02:00-10:55) are the same CICFlowMeter annotation artifact already rejected for Wednesday (labels started at 01:42, 9h before documented 10:50 attack). Labels overridden to 0 for all windows."
+  },
+  "thursday_file": {
+    "date": "2018-03-01",
+    "capture_range": "01:00-12:59 UTC",
+    "documented_attack_window": {
+      "start": "2018-03-01 14:00:00",
+      "end": "2018-03-01 15:37:00",
+      "status": "OUTSIDE file coverage -- no verified attack traffic in this file"
+    },
+    "s3_listing_note": "Only ONE Thursday-01-03-2018 file found in S3 listing. No separate afternoon file confirmed.",
+    "attack_scenario": "Infiltration from inside -- Dropbox download + Nmap portscan",
+    "total_windows": 720,
+    "ground_truth_attack_windows": 0,
+    "ground_truth_benign_windows": 720
+  },
+  "wednesday_reference": {
+    "date": "2018-02-28",
+    "split": "test (windows >= 630)",
+    "fpr": 0.0364,
+    "note": "In-distribution FPR for comparison only"
+  },
+  "specificity_results": {
+    "total_benign_windows": 711,
+    "true_negatives": 686,
+    "false_positives": 25,
+    "fpr": 0.035162,
+    "specificity": 0.964838,
+    "mean_predicted_prob": 0.039955,
+    "max_predicted_prob": 0.973719,
+    "wednesday_fpr_delta": -0.001238
+  },
+  "dropped_metrics": {
+    "precision": "undefined -- no positive class in ground truth",
+    "recall": "undefined -- no positive class in ground truth",
+    "f1": "undefined -- no positive class in ground truth",
+    "auc_roc": "undefined -- no positive class in ground truth"
+  },
+  "false_positive_windows": [
+    {
+      "timestamp": "2018-03-01 02:33:00",
+      "predicted_prob": 0.65582
+    },
+    {
+      "timestamp": "2018-03-01 02:34:00",
+      "predicted_prob": 0.76675
+    },
+    {
+      "timestamp": "2018-03-01 02:35:00",
+      "predicted_prob": 0.90902
+    },
+    {
+      "timestamp": "2018-03-01 02:36:00",
+      "predicted_prob": 0.89459
+    },
+    {
+      "timestamp": "2018-03-01 02:37:00",
+      "predicted_prob": 0.97078
+    },
+    {
+      "timestamp": "2018-03-01 02:38:00",
+      "predicted_prob": 0.97372
+    },
+    {
+      "timestamp": "2018-03-01 02:39:00",
+      "predicted_prob": 0.93946
+    },
+    {
+      "timestamp": "2018-03-01 02:40:00",
+      "predicted_prob": 0.91336
+    },
+    {
+      "timestamp": "2018-03-01 02:41:00",
+      "predicted_prob": 0.68904
+    },
+    {
+      "timestamp": "2018-03-01 02:42:00",
+      "predicted_prob": 0.81398
+    },
+    {
+      "timestamp": "2018-03-01 02:43:00",
+      "predicted_prob": 0.57793
+    },
+    {
+      "timestamp": "2018-03-01 05:38:00",
+      "predicted_prob": 0.52733
+    },
+    {
+      "timestamp": "2018-03-01 05:39:00",
+      "predicted_prob": 0.51532
+    },
+    {
+      "timestamp": "2018-03-01 05:40:00",
+      "predicted_prob": 0.57588
+    },
+    {
+      "timestamp": "2018-03-01 05:41:00",
+      "predicted_prob": 0.59067
+    },
+    {
+      "timestamp": "2018-03-01 10:22:00",
+      "predicted_prob": 0.54018
+    },
+    {
+      "timestamp": "2018-03-01 10:23:00",
+      "predicted_prob": 0.66914
+    },
+    {
+      "timestamp": "2018-03-01 10:24:00",
+      "predicted_prob": 0.57073
+    },
+    {
+      "timestamp": "2018-03-01 10:25:00",
+      "predicted_prob": 0.51386
+    },
+    {
+      "timestamp": "2018-03-01 10:27:00",
+      "predicted_prob": 0.64383
+    },
+    {
+      "timestamp": "2018-03-01 10:28:00",
+      "predicted_prob": 0.70159
+    },
+    {
+      "timestamp": "2018-03-01 10:29:00",
+      "predicted_prob": 0.61902
+    },
+    {
+      "timestamp": "2018-03-01 10:30:00",
+      "predicted_prob": 0.50249
+    },
+    {
+      "timestamp": "2018-03-01 10:49:00",
+      "predicted_prob": 0.66967
+    },
+    {
+      "timestamp": "2018-03-01 10:55:00",
+      "predicted_prob": 0.53345
+    }
+  ],
+  "probability_trace": [
+    {
+      "timestamp": "2018-03-01 01:09:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:10:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:11:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:12:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:13:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:14:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:15:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:16:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:17:00",
+      "attack_prob": 0.00065,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:18:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:19:00",
+      "attack_prob": 0.0006,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:20:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:21:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:22:00",
+      "attack_prob": 0.0006,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:23:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:24:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:25:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:26:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:27:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:28:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:29:00",
+      "attack_prob": 0.00065,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:30:00",
+      "attack_prob": 0.00068,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:31:00",
+      "attack_prob": 0.00083,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:32:00",
+      "attack_prob": 0.00071,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:33:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:34:00",
+      "attack_prob": 0.00067,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:35:00",
+      "attack_prob": 0.00074,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:36:00",
+      "attack_prob": 0.00078,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:37:00",
+      "attack_prob": 0.00095,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:38:00",
+      "attack_prob": 0.00111,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:39:00",
+      "attack_prob": 0.0012,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:40:00",
+      "attack_prob": 0.00134,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:41:00",
+      "attack_prob": 0.00121,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:42:00",
+      "attack_prob": 0.0018,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:43:00",
+      "attack_prob": 0.00405,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:44:00",
+      "attack_prob": 0.00507,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:45:00",
+      "attack_prob": 0.02766,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:46:00",
+      "attack_prob": 0.10626,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:47:00",
+      "attack_prob": 0.05468,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:48:00",
+      "attack_prob": 0.06791,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:49:00",
+      "attack_prob": 0.03787,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:50:00",
+      "attack_prob": 0.02269,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:51:00",
+      "attack_prob": 0.02233,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:52:00",
+      "attack_prob": 0.00769,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:53:00",
+      "attack_prob": 0.00462,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:54:00",
+      "attack_prob": 0.00356,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:55:00",
+      "attack_prob": 0.00214,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:56:00",
+      "attack_prob": 0.00196,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:57:00",
+      "attack_prob": 0.00173,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:58:00",
+      "attack_prob": 0.00147,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 01:59:00",
+      "attack_prob": 0.00166,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:00:00",
+      "attack_prob": 0.00113,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:01:00",
+      "attack_prob": 0.00132,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:02:00",
+      "attack_prob": 0.00143,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:03:00",
+      "attack_prob": 0.00126,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:04:00",
+      "attack_prob": 0.00155,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:05:00",
+      "attack_prob": 0.00147,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:06:00",
+      "attack_prob": 0.00149,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:07:00",
+      "attack_prob": 0.00145,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:08:00",
+      "attack_prob": 0.00154,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:09:00",
+      "attack_prob": 0.00113,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:10:00",
+      "attack_prob": 0.00159,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:11:00",
+      "attack_prob": 0.00159,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:12:00",
+      "attack_prob": 0.0017,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:13:00",
+      "attack_prob": 0.00174,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:14:00",
+      "attack_prob": 0.00156,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:15:00",
+      "attack_prob": 0.00132,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:16:00",
+      "attack_prob": 0.00161,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:17:00",
+      "attack_prob": 0.00142,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:18:00",
+      "attack_prob": 0.00106,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:19:00",
+      "attack_prob": 0.00155,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:20:00",
+      "attack_prob": 0.00131,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:21:00",
+      "attack_prob": 0.0012,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:22:00",
+      "attack_prob": 0.00132,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:23:00",
+      "attack_prob": 0.00146,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:24:00",
+      "attack_prob": 0.00157,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:25:00",
+      "attack_prob": 0.00179,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:26:00",
+      "attack_prob": 0.00201,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:27:00",
+      "attack_prob": 0.002,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:28:00",
+      "attack_prob": 0.00347,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:29:00",
+      "attack_prob": 0.00574,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:30:00",
+      "attack_prob": 0.02707,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:31:00",
+      "attack_prob": 0.12398,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:32:00",
+      "attack_prob": 0.311,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:33:00",
+      "attack_prob": 0.65582,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 02:34:00",
+      "attack_prob": 0.76675,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 02:35:00",
+      "attack_prob": 0.90902,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 02:36:00",
+      "attack_prob": 0.89459,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 02:37:00",
+      "attack_prob": 0.97078,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 02:38:00",
+      "attack_prob": 0.97372,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 02:39:00",
+      "attack_prob": 0.93946,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 02:40:00",
+      "attack_prob": 0.91336,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 02:41:00",
+      "attack_prob": 0.68904,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 02:42:00",
+      "attack_prob": 0.81398,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 02:43:00",
+      "attack_prob": 0.57793,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 02:44:00",
+      "attack_prob": 0.38269,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:45:00",
+      "attack_prob": 0.23342,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:46:00",
+      "attack_prob": 0.16096,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:47:00",
+      "attack_prob": 0.04871,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:48:00",
+      "attack_prob": 0.02705,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:49:00",
+      "attack_prob": 0.01351,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:50:00",
+      "attack_prob": 0.00406,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:51:00",
+      "attack_prob": 0.00293,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:52:00",
+      "attack_prob": 0.00145,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:53:00",
+      "attack_prob": 0.00182,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:54:00",
+      "attack_prob": 0.00146,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:55:00",
+      "attack_prob": 0.00129,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:56:00",
+      "attack_prob": 0.00134,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:57:00",
+      "attack_prob": 0.00107,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:58:00",
+      "attack_prob": 0.0012,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 02:59:00",
+      "attack_prob": 0.00111,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:00:00",
+      "attack_prob": 0.00128,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:01:00",
+      "attack_prob": 0.00152,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:02:00",
+      "attack_prob": 0.00165,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:03:00",
+      "attack_prob": 0.00162,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:04:00",
+      "attack_prob": 0.00163,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:05:00",
+      "attack_prob": 0.00162,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:06:00",
+      "attack_prob": 0.00168,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:07:00",
+      "attack_prob": 0.00215,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:08:00",
+      "attack_prob": 0.0019,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:09:00",
+      "attack_prob": 0.00168,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:10:00",
+      "attack_prob": 0.00212,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:11:00",
+      "attack_prob": 0.0012,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:12:00",
+      "attack_prob": 0.00108,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:13:00",
+      "attack_prob": 0.00105,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:14:00",
+      "attack_prob": 0.00101,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:15:00",
+      "attack_prob": 0.00118,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:16:00",
+      "attack_prob": 0.00114,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:17:00",
+      "attack_prob": 0.00116,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:18:00",
+      "attack_prob": 0.00127,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:19:00",
+      "attack_prob": 0.00156,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:20:00",
+      "attack_prob": 0.00129,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:21:00",
+      "attack_prob": 0.00209,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:22:00",
+      "attack_prob": 0.00207,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:23:00",
+      "attack_prob": 0.00189,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:24:00",
+      "attack_prob": 0.00309,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:25:00",
+      "attack_prob": 0.00256,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:26:00",
+      "attack_prob": 0.00255,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:27:00",
+      "attack_prob": 0.0201,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:28:00",
+      "attack_prob": 0.01723,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:29:00",
+      "attack_prob": 0.02566,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:30:00",
+      "attack_prob": 0.09854,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:31:00",
+      "attack_prob": 0.05827,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:32:00",
+      "attack_prob": 0.20918,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:33:00",
+      "attack_prob": 0.33255,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:34:00",
+      "attack_prob": 0.19406,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:35:00",
+      "attack_prob": 0.22559,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:36:00",
+      "attack_prob": 0.18369,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:37:00",
+      "attack_prob": 0.07332,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:38:00",
+      "attack_prob": 0.08111,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:39:00",
+      "attack_prob": 0.0747,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:40:00",
+      "attack_prob": 0.02071,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:41:00",
+      "attack_prob": 0.05718,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:42:00",
+      "attack_prob": 0.02393,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:43:00",
+      "attack_prob": 0.01073,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:44:00",
+      "attack_prob": 0.00762,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:45:00",
+      "attack_prob": 0.00371,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:46:00",
+      "attack_prob": 0.0033,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:47:00",
+      "attack_prob": 0.00176,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:48:00",
+      "attack_prob": 0.00152,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:49:00",
+      "attack_prob": 0.00135,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:50:00",
+      "attack_prob": 0.00121,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:51:00",
+      "attack_prob": 0.00117,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:52:00",
+      "attack_prob": 0.00143,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:53:00",
+      "attack_prob": 0.00134,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:54:00",
+      "attack_prob": 0.00145,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:55:00",
+      "attack_prob": 0.00299,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:56:00",
+      "attack_prob": 0.00187,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:57:00",
+      "attack_prob": 0.00187,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:58:00",
+      "attack_prob": 0.0018,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 03:59:00",
+      "attack_prob": 0.00158,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:00:00",
+      "attack_prob": 0.00149,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:01:00",
+      "attack_prob": 0.00175,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:02:00",
+      "attack_prob": 0.00153,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:03:00",
+      "attack_prob": 0.00191,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:04:00",
+      "attack_prob": 0.00138,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:05:00",
+      "attack_prob": 0.00109,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:06:00",
+      "attack_prob": 0.00146,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:07:00",
+      "attack_prob": 0.00118,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:08:00",
+      "attack_prob": 0.00091,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:09:00",
+      "attack_prob": 0.00117,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:10:00",
+      "attack_prob": 0.00125,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:11:00",
+      "attack_prob": 0.00103,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:12:00",
+      "attack_prob": 0.00111,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:13:00",
+      "attack_prob": 0.00098,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:14:00",
+      "attack_prob": 0.00132,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:15:00",
+      "attack_prob": 0.00128,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:16:00",
+      "attack_prob": 0.00118,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:17:00",
+      "attack_prob": 0.00113,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:18:00",
+      "attack_prob": 0.00128,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:19:00",
+      "attack_prob": 0.00106,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:20:00",
+      "attack_prob": 0.00119,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:21:00",
+      "attack_prob": 0.00102,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:22:00",
+      "attack_prob": 0.00089,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:23:00",
+      "attack_prob": 0.00112,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:24:00",
+      "attack_prob": 0.00095,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:25:00",
+      "attack_prob": 0.00106,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:26:00",
+      "attack_prob": 0.00116,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:27:00",
+      "attack_prob": 0.00076,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:28:00",
+      "attack_prob": 0.00081,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:29:00",
+      "attack_prob": 0.00079,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:30:00",
+      "attack_prob": 0.00067,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:31:00",
+      "attack_prob": 0.00078,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:32:00",
+      "attack_prob": 0.00077,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:33:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:34:00",
+      "attack_prob": 0.00065,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:35:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:36:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:37:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:38:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:39:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:40:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:41:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:42:00",
+      "attack_prob": 0.0006,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:43:00",
+      "attack_prob": 0.00061,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:44:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:45:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:46:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:47:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:48:00",
+      "attack_prob": 0.00061,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:49:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:50:00",
+      "attack_prob": 0.0005,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:51:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:52:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:53:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:54:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:55:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:56:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:57:00",
+      "attack_prob": 0.00066,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:58:00",
+      "attack_prob": 0.0006,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 04:59:00",
+      "attack_prob": 0.00061,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:00:00",
+      "attack_prob": 0.00067,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:01:00",
+      "attack_prob": 0.00067,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:02:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:03:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:04:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:05:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:06:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:07:00",
+      "attack_prob": 0.00044,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:08:00",
+      "attack_prob": 0.00048,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:09:00",
+      "attack_prob": 0.00051,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:10:00",
+      "attack_prob": 0.00047,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:11:00",
+      "attack_prob": 0.00049,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:12:00",
+      "attack_prob": 0.00046,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:13:00",
+      "attack_prob": 0.00048,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:14:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:15:00",
+      "attack_prob": 0.00048,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:16:00",
+      "attack_prob": 0.00051,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:17:00",
+      "attack_prob": 0.00051,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:18:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:19:00",
+      "attack_prob": 0.00064,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:20:00",
+      "attack_prob": 0.00061,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:21:00",
+      "attack_prob": 0.00068,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:22:00",
+      "attack_prob": 0.0008,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:23:00",
+      "attack_prob": 0.00064,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:24:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:25:00",
+      "attack_prob": 0.00048,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:26:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:27:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:28:00",
+      "attack_prob": 0.00066,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:29:00",
+      "attack_prob": 0.00081,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:30:00",
+      "attack_prob": 0.00187,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:31:00",
+      "attack_prob": 0.00143,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:32:00",
+      "attack_prob": 0.00165,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:33:00",
+      "attack_prob": 0.00189,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:34:00",
+      "attack_prob": 0.00218,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:35:00",
+      "attack_prob": 0.00435,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:36:00",
+      "attack_prob": 0.02559,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:37:00",
+      "attack_prob": 0.12976,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:38:00",
+      "attack_prob": 0.52733,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 05:39:00",
+      "attack_prob": 0.51532,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 05:40:00",
+      "attack_prob": 0.57588,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 05:41:00",
+      "attack_prob": 0.59067,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 05:42:00",
+      "attack_prob": 0.36938,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:43:00",
+      "attack_prob": 0.40449,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:44:00",
+      "attack_prob": 0.35724,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:45:00",
+      "attack_prob": 0.29557,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:46:00",
+      "attack_prob": 0.15591,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:47:00",
+      "attack_prob": 0.05766,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:48:00",
+      "attack_prob": 0.02098,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:49:00",
+      "attack_prob": 0.01039,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:50:00",
+      "attack_prob": 0.00656,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:51:00",
+      "attack_prob": 0.00505,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:52:00",
+      "attack_prob": 0.0043,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:53:00",
+      "attack_prob": 0.00392,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:54:00",
+      "attack_prob": 0.0037,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:55:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:56:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:57:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:58:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 05:59:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:00:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:01:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:02:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:03:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:04:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:05:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:06:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:07:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:08:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:09:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:10:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:11:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:12:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:13:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:14:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:15:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:16:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:17:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:18:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:19:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:20:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:21:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:22:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:23:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:24:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:25:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:26:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:27:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:28:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:29:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:30:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:31:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:32:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:33:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:34:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:35:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:36:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:37:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:38:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:39:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:40:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:41:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:42:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:43:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:44:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:45:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:46:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:47:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:48:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:49:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:50:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:51:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:52:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:53:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:54:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:55:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:56:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:57:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:58:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 06:59:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:00:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:01:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:02:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:03:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:04:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:05:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:06:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:07:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:08:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:09:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:10:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:11:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:12:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:13:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:14:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:15:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:16:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:17:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:18:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:19:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:20:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:21:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:22:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:23:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:24:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:25:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:26:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:27:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:28:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:29:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:30:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:31:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:32:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:33:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:34:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:35:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:36:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:37:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:38:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:39:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:40:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:41:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:42:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:43:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:44:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:45:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:46:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:47:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:48:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:49:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:50:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:51:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:52:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:53:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:54:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:55:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:56:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:57:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:58:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 07:59:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:00:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:01:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:02:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:03:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:04:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:05:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:06:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:07:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:08:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:09:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:10:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:11:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:12:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:13:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:14:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:15:00",
+      "attack_prob": 0.00358,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:16:00",
+      "attack_prob": 0.00852,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:17:00",
+      "attack_prob": 0.01606,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:18:00",
+      "attack_prob": 0.00725,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:19:00",
+      "attack_prob": 0.00393,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:20:00",
+      "attack_prob": 0.00215,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:21:00",
+      "attack_prob": 0.00142,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:22:00",
+      "attack_prob": 0.00112,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:23:00",
+      "attack_prob": 0.00073,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:24:00",
+      "attack_prob": 0.00075,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:25:00",
+      "attack_prob": 0.00062,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:26:00",
+      "attack_prob": 0.00238,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:27:00",
+      "attack_prob": 0.00155,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:28:00",
+      "attack_prob": 0.0011,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:29:00",
+      "attack_prob": 0.00083,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:30:00",
+      "attack_prob": 0.00084,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:31:00",
+      "attack_prob": 0.00065,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:32:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:33:00",
+      "attack_prob": 0.00061,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:34:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:35:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:36:00",
+      "attack_prob": 0.00061,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:37:00",
+      "attack_prob": 0.00062,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:38:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:39:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:40:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:41:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:42:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:43:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:44:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:45:00",
+      "attack_prob": 0.00067,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:46:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:47:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:48:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:49:00",
+      "attack_prob": 0.00062,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:50:00",
+      "attack_prob": 0.00065,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:51:00",
+      "attack_prob": 0.00068,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:52:00",
+      "attack_prob": 0.00072,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:53:00",
+      "attack_prob": 0.00072,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:54:00",
+      "attack_prob": 0.00067,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:55:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:56:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:57:00",
+      "attack_prob": 0.00069,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:58:00",
+      "attack_prob": 0.00065,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 08:59:00",
+      "attack_prob": 0.00069,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:00:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:01:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:02:00",
+      "attack_prob": 0.0006,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:03:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:04:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:05:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:06:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:07:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:08:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:09:00",
+      "attack_prob": 0.00051,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:10:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:11:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:12:00",
+      "attack_prob": 0.00062,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:13:00",
+      "attack_prob": 0.0006,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:14:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:15:00",
+      "attack_prob": 0.0006,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:16:00",
+      "attack_prob": 0.00064,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:17:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:18:00",
+      "attack_prob": 0.00069,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:19:00",
+      "attack_prob": 0.00073,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:20:00",
+      "attack_prob": 0.00065,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:21:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:22:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:23:00",
+      "attack_prob": 0.0006,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:24:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:25:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:26:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:27:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:28:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:29:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:30:00",
+      "attack_prob": 0.0006,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:31:00",
+      "attack_prob": 0.0006,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:32:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:33:00",
+      "attack_prob": 0.0006,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:34:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:35:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:36:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:37:00",
+      "attack_prob": 0.00061,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:38:00",
+      "attack_prob": 0.00062,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:39:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:40:00",
+      "attack_prob": 0.00065,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:41:00",
+      "attack_prob": 0.00068,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:42:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:43:00",
+      "attack_prob": 0.00068,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:44:00",
+      "attack_prob": 0.00072,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:45:00",
+      "attack_prob": 0.00074,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:46:00",
+      "attack_prob": 0.00088,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:47:00",
+      "attack_prob": 0.00089,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:48:00",
+      "attack_prob": 0.00078,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:49:00",
+      "attack_prob": 0.00082,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:50:00",
+      "attack_prob": 0.00075,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:51:00",
+      "attack_prob": 0.00094,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:52:00",
+      "attack_prob": 0.00083,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:53:00",
+      "attack_prob": 0.00073,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:54:00",
+      "attack_prob": 0.00071,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:55:00",
+      "attack_prob": 0.00066,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:56:00",
+      "attack_prob": 0.00062,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:57:00",
+      "attack_prob": 0.00064,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:58:00",
+      "attack_prob": 0.0008,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 09:59:00",
+      "attack_prob": 0.00061,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:00:00",
+      "attack_prob": 0.00067,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:01:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:02:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:03:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:04:00",
+      "attack_prob": 0.00062,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:05:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:06:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:07:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:08:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:09:00",
+      "attack_prob": 0.00064,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:10:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:11:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:12:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:13:00",
+      "attack_prob": 0.00067,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:14:00",
+      "attack_prob": 0.00134,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:15:00",
+      "attack_prob": 0.00146,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:16:00",
+      "attack_prob": 0.00158,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:17:00",
+      "attack_prob": 0.00195,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:18:00",
+      "attack_prob": 0.00305,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:19:00",
+      "attack_prob": 0.00425,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:20:00",
+      "attack_prob": 0.01713,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:21:00",
+      "attack_prob": 0.20695,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:22:00",
+      "attack_prob": 0.54018,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 10:23:00",
+      "attack_prob": 0.66914,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 10:24:00",
+      "attack_prob": 0.57073,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 10:25:00",
+      "attack_prob": 0.51386,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 10:26:00",
+      "attack_prob": 0.48973,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:27:00",
+      "attack_prob": 0.64383,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 10:28:00",
+      "attack_prob": 0.70159,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 10:29:00",
+      "attack_prob": 0.61902,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 10:30:00",
+      "attack_prob": 0.50249,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 10:31:00",
+      "attack_prob": 0.40742,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:32:00",
+      "attack_prob": 0.13678,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:33:00",
+      "attack_prob": 0.06287,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:34:00",
+      "attack_prob": 0.01162,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:35:00",
+      "attack_prob": 0.0066,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:36:00",
+      "attack_prob": 0.0034,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:37:00",
+      "attack_prob": 0.00218,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:38:00",
+      "attack_prob": 0.00164,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:39:00",
+      "attack_prob": 0.00196,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:40:00",
+      "attack_prob": 0.00411,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:41:00",
+      "attack_prob": 0.00379,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:42:00",
+      "attack_prob": 0.00687,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:43:00",
+      "attack_prob": 0.01012,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:44:00",
+      "attack_prob": 0.02079,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:45:00",
+      "attack_prob": 0.06506,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:46:00",
+      "attack_prob": 0.16736,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:47:00",
+      "attack_prob": 0.27112,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:48:00",
+      "attack_prob": 0.37885,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:49:00",
+      "attack_prob": 0.66967,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 10:50:00",
+      "attack_prob": 0.46972,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:51:00",
+      "attack_prob": 0.47242,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:52:00",
+      "attack_prob": 0.454,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:53:00",
+      "attack_prob": 0.46168,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:54:00",
+      "attack_prob": 0.44449,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:55:00",
+      "attack_prob": 0.53345,
+      "true_label": 0,
+      "predicted": 1
+    },
+    {
+      "timestamp": "2018-03-01 10:56:00",
+      "attack_prob": 0.18127,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:57:00",
+      "attack_prob": 0.08336,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:58:00",
+      "attack_prob": 0.04972,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 10:59:00",
+      "attack_prob": 0.01126,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:00:00",
+      "attack_prob": 0.00514,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:01:00",
+      "attack_prob": 0.0024,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:02:00",
+      "attack_prob": 0.00153,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:03:00",
+      "attack_prob": 0.00149,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:04:00",
+      "attack_prob": 0.00088,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:05:00",
+      "attack_prob": 0.0009,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:06:00",
+      "attack_prob": 0.00099,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:07:00",
+      "attack_prob": 0.00092,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:08:00",
+      "attack_prob": 0.00082,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:09:00",
+      "attack_prob": 0.00079,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:10:00",
+      "attack_prob": 0.00081,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:11:00",
+      "attack_prob": 0.00073,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:12:00",
+      "attack_prob": 0.00067,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:13:00",
+      "attack_prob": 0.00066,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:14:00",
+      "attack_prob": 0.00069,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:15:00",
+      "attack_prob": 0.00073,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:16:00",
+      "attack_prob": 0.00065,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:17:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:18:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:19:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:20:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:21:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:22:00",
+      "attack_prob": 0.00051,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:23:00",
+      "attack_prob": 0.00049,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:24:00",
+      "attack_prob": 0.00048,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:25:00",
+      "attack_prob": 0.0005,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:26:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:27:00",
+      "attack_prob": 0.00047,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:28:00",
+      "attack_prob": 0.00051,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:29:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:30:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:31:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:32:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:33:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:34:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:35:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:36:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:37:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:38:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:39:00",
+      "attack_prob": 0.00062,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:40:00",
+      "attack_prob": 0.00061,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:41:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:42:00",
+      "attack_prob": 0.00062,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:43:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:44:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:45:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:46:00",
+      "attack_prob": 0.00062,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:47:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:48:00",
+      "attack_prob": 0.0006,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:49:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:50:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:51:00",
+      "attack_prob": 0.00061,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:52:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:53:00",
+      "attack_prob": 0.00061,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:54:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:55:00",
+      "attack_prob": 0.00061,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:56:00",
+      "attack_prob": 0.00061,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:57:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:58:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 11:59:00",
+      "attack_prob": 0.00059,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:00:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:01:00",
+      "attack_prob": 0.00063,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:02:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:03:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:04:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:05:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:06:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:07:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:08:00",
+      "attack_prob": 0.0005,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:09:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:10:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:11:00",
+      "attack_prob": 0.00047,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:12:00",
+      "attack_prob": 0.00051,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:13:00",
+      "attack_prob": 0.00051,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:14:00",
+      "attack_prob": 0.00047,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:15:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:16:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:17:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:18:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:19:00",
+      "attack_prob": 0.00058,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:20:00",
+      "attack_prob": 0.00048,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:21:00",
+      "attack_prob": 0.00047,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:22:00",
+      "attack_prob": 0.00049,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:23:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:24:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:25:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:26:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:27:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:28:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:29:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:30:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:31:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:32:00",
+      "attack_prob": 0.00051,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:33:00",
+      "attack_prob": 0.0005,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:34:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:35:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:36:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:37:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:38:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:39:00",
+      "attack_prob": 0.00051,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:40:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:41:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:42:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:43:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:44:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:45:00",
+      "attack_prob": 0.00055,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:46:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:47:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:48:00",
+      "attack_prob": 0.00053,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:49:00",
+      "attack_prob": 0.00054,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:50:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:51:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:52:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:53:00",
+      "attack_prob": 0.00051,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:54:00",
+      "attack_prob": 0.00056,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:55:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:56:00",
+      "attack_prob": 0.00057,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:57:00",
+      "attack_prob": 0.00049,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:58:00",
+      "attack_prob": 0.00052,
+      "true_label": 0,
+      "predicted": 0
+    },
+    {
+      "timestamp": "2018-03-01 12:59:00",
+      "attack_prob": 0.00051,
+      "true_label": 0,
+      "predicted": 0
+    }
+  ]
+}
