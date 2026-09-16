@@ -1,0 +1,78 @@
+{
+  "model_path": "/home/vaibhav_09/projects/AI-Network-Attack-Forecasting/models/lstm_model.h5",
+  "data_path": "/home/vaibhav_09/projects/AI-Network-Attack-Forecasting/data/processed/state_transitions_clean.csv",
+  "k_steps": 10,
+  "threshold": 0.5,
+  "horizons": {
+    "1": {
+      "horizon": 1,
+      "auc": 0.8893,
+      "precision_at_80_recall": 0.7632,
+      "auc_pr": 0.7589,
+      "precision": 0.7812,
+      "recall": 0.7353,
+      "f1": 0.7576,
+      "fpr": 0.1273,
+      "tp": 25,
+      "fp": 7,
+      "tn": 48,
+      "fn": 9,
+      "samples": 89
+    },
+    "5": {
+      "horizon": 5,
+      "auc": 0.7945,
+      "precision_at_80_recall": 0.5714,
+      "auc_pr": 0.6068,
+      "precision": 0.6296,
+      "recall": 0.5667,
+      "f1": 0.5965,
+      "fpr": 0.1818,
+      "tp": 17,
+      "fp": 10,
+      "tn": 45,
+      "fn": 13,
+      "samples": 85
+    },
+    "10": {
+      "horizon": 10,
+      "auc": 0.5847,
+      "precision_at_80_recall": 0.339,
+      "auc_pr": 0.3547,
+      "precision": 0.4286,
+      "recall": 0.48,
+      "f1": 0.4528,
+      "fpr": 0.2909,
+      "tp": 12,
+      "fp": 16,
+      "tn": 39,
+      "fn": 13,
+      "samples": 80
+    },
+    "15": {
+      "horizon": 15,
+      "auc": 0.6091,
+      "precision_at_80_recall": 0.32,
+      "auc_pr": 0.3194,
+      "precision": 0.3704,
+      "recall": 0.5,
+      "f1": 0.4255,
+      "fpr": 0.3091,
+      "tp": 10,
+      "fp": 17,
+      "tn": 38,
+      "fn": 10,
+      "samples": 75
+    }
+  },
+  "baseline_metrics": {
+    "precision": 0.7368,
+    "recall": 0.4118,
+    "f1": 0.5283,
+    "fpr": 0.0909,
+    "tn": 50,
+    "fp": 5,
+    "fn": 20,
+    "tp": 14
+  }
+}
