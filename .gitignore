@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+
+# Temporary/intermediate files
+data/processed/*_before_label_fix.csv
+
