@@ -31,7 +31,6 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from sklearn.metrics import confusion_matrix
 import streamlit as st
-import torch
 
 # Ensure project root is in sys.path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -41,12 +40,9 @@ if str(PROJECT_ROOT) not in sys.path:
 from src.explainability.mitre_stage_mapping import predict_mitre_stage
 from src.explainability.shap_attribution import AttackExplainer, init_explainer
 from src.forecasting.kstep_rollout import forward_rollout, load_flow_lstm_and_scaler
-from src.models.temporal_lstm import TemporalLSTM
 from src.models.temporal_lstm_fused import (
     FLOW_ONLY_BASELINE,
     LOGISTIC_REGRESSION_BASELINE,
-    TemporalLSTM as FusedTemporalLSTM,
-    load_and_prepare_fused_sequences,
 )
 
 # Page configuration

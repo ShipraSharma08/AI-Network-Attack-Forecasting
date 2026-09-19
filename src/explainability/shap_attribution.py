@@ -19,8 +19,14 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 import numpy as np
 import pandas as pd
 import shap
-import torch
-import torch.nn as nn
+try:
+    import torch
+    import torch.nn as nn
+except ImportError as _torch_err:  # pragma: no cover
+    raise ImportError(
+        "PyTorch is required for SHAP attribution. "
+        "Install it with: pip install torch"
+    ) from _torch_err
 from sklearn.preprocessing import StandardScaler
 
 # Ensure project root is in sys.path

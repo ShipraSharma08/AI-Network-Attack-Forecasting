@@ -32,9 +32,15 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score
 from sklearn.preprocessing import StandardScaler
-import torch
-import torch.nn as nn
-from torch.utils.data import DataLoader, TensorDataset
+try:
+    import torch
+    import torch.nn as nn
+    from torch.utils.data import DataLoader, TensorDataset
+except ImportError as _torch_err:  # pragma: no cover
+    raise ImportError(
+        "PyTorch is required for the Fused Temporal LSTM model. "
+        "Install it with: pip install torch"
+    ) from _torch_err
 
 # Ensure project root is in sys.path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent

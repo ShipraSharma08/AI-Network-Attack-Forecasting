@@ -45,8 +45,14 @@ from sklearn.metrics import (
     roc_curve,
 )
 from sklearn.preprocessing import StandardScaler
-import torch
-import torch.nn as nn
+try:
+    import torch
+    import torch.nn as nn
+except ImportError as _torch_err:  # pragma: no cover
+    raise ImportError(
+        "PyTorch is required for LSTM inference. "
+        "Install it with: pip install torch"
+    ) from _torch_err
 
 # Ensure project root is in sys.path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
