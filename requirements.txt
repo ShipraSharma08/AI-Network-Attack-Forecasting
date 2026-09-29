@@ -7,3 +7,4 @@ shap>=0.43.0
 tensorflow>=2.13.0
 scapy>=2.5.0
 Pillow>=9.5.0
+torch>=2.1.0
