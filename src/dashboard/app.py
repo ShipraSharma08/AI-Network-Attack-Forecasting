@@ -39,7 +39,14 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from src.explainability.mitre_stage_mapping import predict_mitre_stage
 from src.explainability.shap_attribution import AttackExplainer, init_explainer
-from src.forecasting.kstep_rollout import forward_rollout, load_flow_lstm_and_scaler
+from src.features.canonical_schema import CANONICAL_29_FLOW_FEATURES, assert_schema_compliance
+from src.forecasting.kstep_worldmodel_rollout import (
+    forward_rollout,
+    forward_worldmodel_rollout,
+    genuine_state_rollout,
+    load_worldmodel_and_scaler,
+)
+from src.models.temporal_lstm_worldmodel import TemporalLSTMWorldModel
 from src.models.temporal_lstm import TemporalLSTM
 from src.models.temporal_lstm_fused import (
     FLOW_ONLY_BASELINE,
@@ -173,8 +180,8 @@ st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
 
 @st.cache_resource
 def load_cached_models_and_data():
-    """Cache loaded models, scaler, dataset, and background explainer."""
-    model, scaler, feature_cols, df = load_flow_lstm_and_scaler()
+    """Cache loaded World Model, scaler, dataset, and background explainer."""
+    model, scaler, feature_cols, df = load_worldmodel_and_scaler()
     explainer, _, _ = init_explainer(n_background_samples=25, nsamples=40)
     return {
         "model": model,
@@ -996,9 +1003,9 @@ def main():
         st.warning("Please select a scenario or upload network traffic to begin analysis.")
         return
 
-    # Perform LSTM inference & K-step rollout
-    pred_current = float(model.predict(sequence_data[np.newaxis, ...])[0, 0])
-    rollout_probs = forward_rollout(initial_state=sequence_data, k_steps=max(15, k_steps), model=model)
+    # Perform World Model inference & genuine recursive K-step rollout
+    pred_current = float(model.predict_proba(sequence_data[np.newaxis, ...])[0, 0])
+    rollout_probs, rollout_states = forward_worldmodel_rollout(initial_state=sequence_data, k_steps=max(15, k_steps), model=model)
     display_rollout = rollout_probs[:k_steps]
 
     # Extract feature values for behavior-driven MITRE stage classification
@@ -1205,6 +1212,16 @@ def main():
             "trajectory": [round(float(p), 4) for p in display_rollout],
         },
         "top_predictive_drivers": shap_res["top_features"],
+        "world_model_metadata": {
+            "model_architecture": "TemporalLSTMWorldModel (Dual-Head)",
+            "dual_heads": {
+                "head_a": "Next-State Regression Head (29 canonical flow features)",
+                "head_b": "Attack Classification Head (Sigmoid risk probability)",
+            },
+            "feature_schema_version": "canonical_29_flow_features_v1",
+            "rollout_engine": "recursive_autoregressive_state_feedback",
+            "history_window_length": 10,
+        },
     }
 
     col_exp1, col_exp2, col_exp3 = st.columns([2, 1, 1])
