@@ -135,6 +135,13 @@ class TemporalLSTMWorldModel(nn.Module):
                 return state_pred.cpu().numpy(), attack_pred.cpu().numpy()
             return attack_pred.cpu().numpy()
 
+    def predict_proba(self, x) -> np.ndarray:
+        """
+        Predict only the attack probabilities for compatibility with scikit-learn / SHAP.
+        Returns numpy array of shape (batch_size, 1).
+        """
+        return self.predict(x, return_state=False)
+
 
 # Alias for backward compatibility
 TemporalLSTM = TemporalLSTMWorldModel

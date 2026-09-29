@@ -20,7 +20,7 @@ for K=1,5,10,15 minute horizons on the test set (window >= 630).
 import json
 import sys
 from pathlib import Path
-from typing import Dict, List, Tuple, Any
+from typing import Dict, List, Tuple, Any, Union
 
 import numpy as np
 import pandas as pd
@@ -97,6 +97,100 @@ def load_worldmodel_and_data(device: str = "cpu"):
     print(f"      Model loaded successfully (dual-head: state + classification)")
 
     return model, scaler, df, X_scaled, nxt_scaled, nxt_raw, y_all, windows, cur_cols
+
+
+
+def load_worldmodel_and_scaler(
+    model_path: Union[str, Path] = MODEL_PATH,
+    data_path: Union[str, Path] = DATA_PATH,
+    device: str = "cpu",
+) -> Tuple[TemporalLSTMWorldModel, StandardScaler, List[str], pd.DataFrame]:
+    """
+    Load trained dual-head Temporal LSTM World Model and fit StandardScaler
+    strictly from training transitions (window <= 609) to eliminate data leakage.
+
+    Returns:
+      (model, scaler, feature_cols, df)
+    """
+    model_path = Path(model_path).resolve()
+    data_path = Path(data_path).resolve()
+
+    if not data_path.exists():
+        raise FileNotFoundError(f"Transitions dataset not found: {data_path}")
+
+    df = pd.read_csv(data_path)
+    df = df.sort_values("window").reset_index(drop=True)
+
+    feature_cols = [
+        c for c in df.columns
+        if c.startswith("current_") and c != "current_attack_label"
+    ]
+
+    train_mask = df["window"] <= 609
+    X_raw = df.loc[train_mask, feature_cols].replace([float("inf"), float("-inf")], 0).fillna(0).values
+
+    scaler = StandardScaler()
+    scaler.fit(X_raw)
+
+    model = TemporalLSTMWorldModel(input_dim=len(feature_cols), hidden_dim=128, dense_dim=64, dropout_rate=0.3)
+
+    if model_path.suffix == ".h5" and model_path.exists():
+        with h5py.File(model_path, "r") as f:
+            state_dict = {name: torch.tensor(f[name][()]) for name in f.keys()}
+        model.load_state_dict(state_dict)
+    elif model_path.with_suffix(".pt").exists():
+        model.load_state_dict(torch.load(model_path.with_suffix(".pt"), map_location=device))
+    elif model_path.exists():
+        model.load_state_dict(torch.load(model_path, map_location=device))
+    else:
+        raise FileNotFoundError(f"World Model not found at {model_path}")
+
+    model.to(torch.device(device))
+    model.eval()
+
+    return model, scaler, feature_cols, df
+
+
+def forward_rollout(
+    initial_state: np.ndarray,
+    k_steps: int = 15,
+    model: Any = None,
+    device: str = "cpu",
+) -> np.ndarray:
+    """
+    Genuine autoregressive K-step World Model rollout.
+    At each step:
+      1. Predicts P(attack at t+k) and next state S_hat(t+k)
+      2. Recursively feeds S_hat(t+k) back into the input sequence
+    Returns:
+      predictions: 1D numpy array of length k_steps containing attack probabilities.
+    """
+    probs, _ = genuine_state_rollout(
+        initial_window=initial_state,
+        k_steps=k_steps,
+        model=model,
+        device=device,
+    )
+    return probs
+
+
+def forward_worldmodel_rollout(
+    initial_state: np.ndarray,
+    k_steps: int = 15,
+    model: Any = None,
+    device: str = "cpu",
+) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    Genuine autoregressive K-step World Model rollout returning both:
+      1. attack_probs: (k_steps,) array
+      2. predicted_states: (k_steps, 29) array in standardized space
+    """
+    return genuine_state_rollout(
+        initial_window=initial_state,
+        k_steps=k_steps,
+        model=model,
+        device=device,
+    )
 
 
 def genuine_state_rollout(

@@ -28,11 +28,15 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
+from src.forecasting.kstep_worldmodel_rollout import load_worldmodel_and_scaler
 from src.forecasting.kstep_rollout import load_flow_lstm_and_scaler
+from src.models.temporal_lstm_worldmodel import TemporalLSTMWorldModel
 from src.models.temporal_lstm import TemporalLSTM
 
 DEFAULT_DATA_PATH = PROJECT_ROOT / "data" / "processed" / "state_transitions_clean.csv"
-DEFAULT_MODEL_PATH = PROJECT_ROOT / "models" / "lstm_model.h5"
+_WM_PATH = PROJECT_ROOT / "models" / "lstm_worldmodel_model.h5"
+_CLF_PATH = PROJECT_ROOT / "models" / "lstm_model.h5"
+DEFAULT_MODEL_PATH = _WM_PATH if _WM_PATH.exists() else _CLF_PATH
 
 
 class LSTMSurrogateModel(nn.Module):
@@ -41,14 +45,16 @@ class LSTMSurrogateModel(nn.Module):
     as an explainer-compatible surrogate model.
     """
 
-    def __init__(self, full_model: TemporalLSTM):
+    def __init__(self, full_model: Any):
         super().__init__()
         self.lstm = full_model.lstm
         self.dropout1 = full_model.dropout1
         self.dense1 = full_model.dense1
         self.relu = full_model.relu
         self.dropout2 = full_model.dropout2
-        self.dense2 = full_model.dense2
+        # Support both World Model (clf_head) and legacy classifier (dense2)
+        self.clf_head = getattr(full_model, "clf_head", getattr(full_model, "dense2", None))
+        self.dense2 = self.clf_head
         self.sigmoid = full_model.sigmoid
 
     def extract_last_hidden(self, x_seq: torch.Tensor) -> torch.Tensor:
@@ -61,7 +67,7 @@ class LSTMSurrogateModel(nn.Module):
         out = self.dropout1(h_last)
         out = self.relu(self.dense1(out))
         out = self.dropout2(out)
-        out = self.sigmoid(self.dense2(out))
+        out = self.sigmoid(self.clf_head(out))
         return out
 
     def forward(self, x_seq: torch.Tensor) -> torch.Tensor:
@@ -225,9 +231,14 @@ def init_explainer(
     """
     Initialize the AttackExplainer with trained weights and non-leaking background data.
     """
-    model, scaler, feature_cols, df = load_flow_lstm_and_scaler(
-        model_path=model_path, data_path=data_path, device=device
-    )
+    if Path(model_path).name.startswith("lstm_worldmodel") or "worldmodel" in str(model_path):
+        model, scaler, feature_cols, df = load_worldmodel_and_scaler(
+            model_path=model_path, data_path=data_path, device=device
+        )
+    else:
+        model, scaler, feature_cols, df = load_flow_lstm_and_scaler(
+            model_path=model_path, data_path=data_path, device=device
+        )
 
     train_mask = df["window"] <= 609
     train_df = df[train_mask].reset_index(drop=True)
